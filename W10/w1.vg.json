@@ -1,0 +1,159 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "width": 600,
+      "height": 450,
+      "title": "Domestic Tourism Trips by Country, 2023 (Thousands)",
+      "projection": {"type": "equalEarth"},
+      "params": [
+        {
+            "name": "selected",
+            "value": "Total (thousands)",
+            "bind": {
+                "input": "select",
+                "options": [
+                    "Total (thousands)",
+                    "Overnight (thousands)", 
+                    "Same-day (thousands)"
+                ],
+                "name": "Metric: "
+            }
+        }],
+      "layer": [{
+                    "data": {"sphere": true},
+                    "mark": {"type": "geoshape", "fill": "lightblue"}
+                },
+                { 
+                    "data": {"graticule": {"step": [20, 20]}}, 
+                    "mark": {"type": "geoshape", "stroke": "darkgray", "strokeWidth": 0.5} 
+                },
+                {
+                    "data": {
+                                "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/2_symbol_map/js/ne_110m_admin_0_countries.topojson",
+                                "format": {"type": "topojson", 
+                                "feature": "ne_110m_admin_0_countries"}
+                            },
+                    "mark": {
+                                "type": "geoshape", 
+                                "fill": "lightgray", 
+                                "stroke": "#ffffff"
+                            }
+                },
+                {
+                    "data": {
+                                "url": "https://raw.githubusercontent.com/wtho0016/FIT3179/refs/heads/main/W10/country.csv"
+                            },
+                            
+                    "transform": [  
+                            {    
+                                "calculate": "selected == 'Total (thousands)' ? datum['Total (thousands)'] : (selected == 'Same-day (thousands)' ? datum['Same-day (thousands)'] : datum['Overnight (thousands)'])",
+                                "as": "metric_value"  
+                            }
+                        ],
+                    "mark": {
+                                "type": "circle", "tooltip": {"content": "data"}
+                            },
+                    "encoding": {
+                        "longitude": {"field": "Longitude (average)", "type": "quantitative"},
+                        "latitude": {"field": "Latitude (average)", "type": "quantitative"},
+                        "size": { 
+                            "field": "metric_value", 
+                            "type": "quantitative", 
+                            "title": "Domestic Visitors (thousands)", 
+                            "scale": {"range": [10,1000]}, 
+                            "legend": {
+                            "orient": "bottom-left",
+                            "direction": "horizontal",
+                            "padding": 5,
+                            "offset": 5
+                        }
+                        },
+                        "color": {"value": "steelblue"},
+                        "tooltip": [
+                            {"field": "Country", "type": "nominal", "title": "Country"},
+                            {"field": "metric_value", "type": "quantitative", "title": "Domestic Visitors (thousands)"}
+                        ]
+                        }
+                    },
+                    {
+                    "data": {
+                        "url": "https://raw.githubusercontent.com/wtho0016/FIT3179/main/W10/country.csv"
+                    },
+                    "transform": [
+                        {"filter": "datum.Country == 'United Kingdom'"},
+                        {"calculate": "datum['Longitude (average)'] - 20", "as": "text_lon"},
+                        {"calculate": "datum['Latitude (average)'] + 90", "as": "text_lat"},
+                        {"calculate": "'Weaker pound and high flight costs ;made local UK trips more appealing.'", "as": "text_annotation_raw"},
+                        {"calculate": "split(datum.text_annotation_raw, ';')", "as": "text_annotation"}
+                    ],
+                    "layer": [
+                        {
+                        "mark": {"type": "rule", "color": "black", "strokeWidth": 1},
+                        "encoding": {
+                            "longitude": {"field": "Longitude (average)"},
+                            "latitude": {"field": "Latitude (average)"},
+                            "longitude2": {"field": "text_lon"},
+                            "latitude2": {"field": "text_lat"}
+                        }
+                        },
+                        {
+                        "mark": {"type": "text", "align": "left", "dx":-25, "dy": -15, "fontSize": 22, "stroke": "whitesmoke", "strokeWidth": 10},   
+                        "encoding": {
+                            "longitude": {"field": "text_lon"},
+                            "latitude": {"field": "text_lat"},
+                            "text": {"value": "|||||||||||||||||||||||||||||||"}
+                        }
+                        },
+                        {
+                        "mark": {"type": "text", "align": "left", "dx":-20, "dy": -20, "fontSize": 10},   
+                        "encoding": {
+                            "longitude": {"field": "text_lon"},
+                            "latitude": {"field": "text_lat"},
+                            "text": {"field": "text_annotation"}
+                        }
+                        }
+                    ]
+                    },
+                    
+
+
+                    {
+                    "data": {
+                        "url": "https://raw.githubusercontent.com/wtho0016/FIT3179/main/W10/country.csv"
+                    },
+                    "transform": [
+                        {"filter": "datum.Country == 'China'"},
+                        {"calculate": "datum['Longitude (average)'] +90", "as": "text_lon"},
+                        {"calculate": "datum['Latitude (average)'] -18", "as": "text_lat"},
+                        {"calculate": "'China’s vast population and strong rail ;network kept domestic travel thriving.'", "as": "text_annotation_raw"},
+                        {"calculate": "split(datum.text_annotation_raw, ';')", "as": "text_annotation"}
+                    ],
+                    "layer": [
+                        {
+                        "mark": {"type": "rule", "color": "black", "strokeWidth": 1},
+                        "encoding": {
+                            "longitude": {"field": "Longitude (average)"},
+                            "latitude": {"field": "Latitude (average)"},
+                            "longitude2": {"field": "text_lon"},
+                            "latitude2": {"field": "text_lat"}
+                        }
+                        },
+                        {
+                        "mark": {"type": "text", "align": "left", "dx":-25, "dy": -15, "fontSize": 22, "stroke": "whitesmoke", "strokeWidth": 10},   
+                        "encoding": {
+                            "longitude": {"field": "text_lon"},
+                            "latitude": {"field": "text_lat"},
+                            "text": {"value": "|||||||||||||||||||||||||||||||"}
+                        }
+                        },
+                        {
+                        "mark": {"type": "text", "align": "left", "dx":-20, "dy": -20, "fontSize": 10},   
+                        "encoding": {
+                            "longitude": {"field": "text_lon"},
+                            "latitude": {"field": "text_lat"},
+                            "text": {"field": "text_annotation"}
+                        }
+                        }
+                    ]
+                    }
+  ]
+}
