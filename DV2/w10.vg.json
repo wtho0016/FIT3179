@@ -21,7 +21,7 @@
             }
           }
         ],
-      "data": { "url": "https://raw.githubusercontent.com/wtho0016/FIT3179/main/W10/UN_Tourism_8_9_2_employed_persons_04_2025.csv" },
+      "data": { "url": "https://raw.githubusercontent.com/wtho0016/FIT3179/main/DV2/Data/UN_Tourism_8_9_2_employed_persons_04_2025.csv" },
       "transform": [
         { "calculate": "toNumber(trim(datum.Value))", "as": "Value_num" },
         { "calculate": "format(datum.Value / 1000000, '.2f') ", "as": "tooltip_text"},
