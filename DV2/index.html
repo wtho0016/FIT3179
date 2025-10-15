@@ -5,35 +5,108 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
 
         <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
         <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
         <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-        <script src="w10.js"></script>
+        <script src="dv2.js"></script>
 
         <title>
-            34020330 FIT3179 w10 HW
+            34020330 FIT3179 DV2
         </title>
+
         <style>
-      body {
-        font-family: Arial, sans-serif;
-        text-align: center; /* centers the title and chart container */
-        margin: 0;
+          body {
+            text-align: center; /* centers the title and chart container */
+            margin: 0;
+            padding: 20px;
+            margin: 0;
+            padding-top: 20px;
+            background: linear-gradient(#e0f7ff,#c4ecfa ,#90e0ef, #0077b6, #023e8a,#02316f);
+            display: flex;
+            justify-content: center; /* center main container horizontally */
+            align-items: flex-start; /* keep content at top */
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+          }
+          
+
+      /* Main centered container */
+      .main-container {
+        width: 1080px;
+      }
+
+      /* Shared style for all section containers (title + charts) */
+      .section-container {
+        width: 100%;
+        background: linear-gradient(to bottom, #ffffff, #e0f7ff);
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        border: 1px solid rgba(255,255,255,0.3);
+        margin-bottom: 20px;
         padding: 20px;
       }
 
-      #chart {
-        display: inline-block; /* makes chart center properly */
+      /* Title container uses same style */
+      .title-container h1 {
+        font-size: 50px;
+        margin: 0;
+        padding-top: 10px;
+        text-align: center;
       }
+        
+      .main-title {
+        font-family: 'Merriweather', serif;
+        font-weight: 700;
+        color: black;
+        margin: 0 0 10px 0;
+      }
+
+      .subtitle {
+        font-family: 'Lora', serif;
+        font-size: 20px;
+        font-style: italic;
+        color: #2d2c2c;
+        margin-top: 10px;
+      }
+
+      /* Chart container (inside main container) */
+      .chart-container h2 {
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: #333;
+        text-align: center;
+      }
+
     </style>
   </head>
 
   <body>
-    <h1>34020330 FIT3179 Week 10 Homework</h1>
-    <div style="display: flex; width: 100%;">
-      <div id="chart" style="flex: 1;"></div>
-      <div id="chart-w10" style="flex: 1;"></div>
-    </div>
+    <div class="main-container">
+      <!-- Title -->
+      <div class="section-container title-container" 
+        style="background:  #48cae4;">        
+        <h1 class="main-title" style="color: #0b0230;"> Global Travelers</h1>
+        <h2 class="subtitle" style="color: #150255;">Uncovering patterns in where the world travels.</h2>
+      </div>
 
+      <!-- Chart 1 -->
+      <div class="section-container chart-container">
+        <h2>Chart 1: Example Title</h2>
+        <div id="chart_dom"></div>
+      </div>
+
+      <!-- Chart 2 -->
+      <div class="section-container chart-container">
+        <h2>Chart 2: Example Title</h2>
+        <div id="chart_top10"></div>
+      </div>
+    </div>
   </body>
 </html>
