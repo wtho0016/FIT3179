@@ -3,10 +3,11 @@
 
       "title": "Top 20 Countries by Tourism Employment (Millions)",
       "width": 450,
+      "background": "transparent",
       "height": 450,
       "padding": {"bottom": 20},
       "config": {
-      "view": {"stroke": "transparent"},
+      "view": {"stroke": "transparent", "fill": "transparent"},
       "padding": {"left": 150}},
       "params": [
           {

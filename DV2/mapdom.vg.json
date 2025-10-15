@@ -2,6 +2,11 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
       "width": 600,
       "height": 450,
+      "view": { "fill": "transparent" },
+      "config": {
+            "view": {"stroke": null}
+        },
+      "background": "transparent",
       "title": "Domestic Tourism Trips by Country, 2023 (Thousands)",
       "projection": {"type": "equalEarth"},
       "params": [
@@ -20,7 +25,10 @@
         }],
       "layer": [{
                     "data": {"sphere": true},
-                    "mark": {"type": "geoshape", "fill": "lightblue"}
+                    "mark": {"type": "geoshape", "fill": "lightblue","stroke": null},
+                    "encoding": {  
+                        "stroke": {"value": null},  
+                        "strokeWidth": {"value": 0}}
                 },
                 { 
                     "data": {"graticule": {"step": [20, 20]}}, 
