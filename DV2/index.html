@@ -28,7 +28,9 @@
             padding: 20px;
             margin: 0;
             padding-top: 20px;
-            background: linear-gradient(#e0f7ff,#c4ecfa ,#90e0ef, #0077b6, #023e8a,#02316f);
+            background: linear-gradient(#ffe5d9, #fff1b6, #b3e0ff, #90e0ef);
+
+            /* background: linear-gradient(#e0f7ff,#c4ecfa ,#90e0ef, #0077b6, #023e8a,#02316f); */
             display: flex;
             justify-content: center; /* center main container horizontally */
             align-items: flex-start; /* keep content at top */
@@ -84,6 +86,26 @@
         text-align: center;
       }
 
+      .chart-row {
+        display: flex;
+        gap: 20px; /* space between chart and text */
+        align-items: flex-start;
+      }
+
+      .chart-container {
+        flex: 3; /* 75% width (3/4) */
+      }
+
+      .text-container {
+        flex: 1; /* 25% width (1/4) */
+        font-size: 14px;
+        color: #341c1c;
+        line-height: 1.5; /* consistent vertical spacing */
+        text-align: justify; /* even horizontal spacing */
+        text-justify: inter-word; /* spreads words evenly */
+      }
+
+
     </style>
   </head>
 
@@ -91,22 +113,95 @@
     <div class="main-container">
       <!-- Title -->
       <div class="section-container title-container" 
-        style="background:  #48cae4;">        
-        <h1 class="main-title" style="color: #0b0230;"> Global Travelers</h1>
+        style="background: linear-gradient(#ffffff,#c8f5fd);">        
+        <h1 class="main-title" style="color: #000000;"> Global Travelers</h1>
         <h2 class="subtitle" style="color: #150255;">Uncovering patterns in where the world travels.</h2>
       </div>
 
       <!-- Chart 1 -->
-      <div class="section-container chart-container">
-        <h2>Chart 1: Example Title</h2>
-        <div id="chart_dom"></div>
-      </div>
+      <div class="section-container chart-section">
+      <h2>Home Sweet Home</h2>
+      <h3>A Look into Domestic Tourism</h3>
+      <div class="chart-row">
+        <!-- Left: Chart -->
+        <div class="chart-container">
+          <div id="chart_dom"></div>
+        </div>
 
-      <!-- Chart 2 -->
-      <div class="section-container chart-container">
-        <h2>Chart 2: Example Title</h2>
-        <div id="chart_top10"></div>
+        <!-- Right: Text -->
+        <div class="text-container">
+          <p>
+            This chart shows the distribution of hotel establishments by country in 2023.
+            We can tell from the map that the United Kingdom has the highest number of hotel establishments,
+            with China following closely behind.
+          </p>
+        </div>
       </div>
+    </div>
+
+    <!-- Chart 2 -->
+      <div class="section-container chart-section">
+      <h2>Get A Job!</h2>
+      <h3>People Employed in the Toursim Sector</h3>
+      <div class="chart-row">
+        <!-- Left: Chart -->
+        <div class="chart-container">
+          <div id="chart_top10"></div>
+        </div>
+
+        <!-- Right: Text -->
+        <div class="text-container">
+          <p>
+            Here we can see the top 20 countries with the highest number of people employed in the tourism sector.
+            The chart shows that Brazil has the highest number of people employed in the tourism sector in 2025,
+            followed by the Philipines and Spain.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chart 3 -->
+      <div class="section-container chart-section">
+      <h2>Sweet Dreams</h2>
+      <h3>How homely do visitors feel when they travel a country?</h3>
+      <div class="chart-row">
+        <!-- Left: Chart -->
+        <div class="chart-container">
+          <div id="chart_accom"></div>
+        </div>
+
+        <!-- Right: Text -->
+        <div class="text-container">
+          <p>
+            This chart shows the distribution of hotel establishments by country in 2023.
+            We can tell from the map that the United Kingdom has the highest number of hotel establishments,
+            with China following closely behind.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chart 4 -->
+      <div class="section-container chart-section">
+      <h2>Home Sweet Home</h2>
+      <h3>A Look into Domestic Tourism</h3>
+      <div class="chart-row">
+        <!-- Left: Chart -->
+        <div class="chart-container">
+          <div id="chart_accom2"></div>
+        </div>
+
+        <!-- Right: Text -->
+        <div class="text-container">
+          <p>
+            This chart shows the distribution of hotel establishments by country in 2023.
+            We can tell from the map that the United Kingdom has the highest number of hotel establishments,
+            with China following closely behind.
+          </p>
+        </div>
+      </div>
+    </div>
+
     </div>
   </body>
 </html>

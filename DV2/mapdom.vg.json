@@ -7,8 +7,14 @@
             "view": {"stroke": null}
         },
       "background": "transparent",
-      "title": "Domestic Tourism Trips by Country, 2023 (Thousands)",
-      "projection": {"type": "equalEarth"},
+      "title": {
+            "text": "Domestic Tourism Trips by Country, 2023 (Thousands)",
+            "fontSize": 16,
+            "font": "sans-serif",
+            "anchor": "middle",
+            "color": "#333"
+        },
+  "projection": {"type": "equalEarth"},
       "params": [
         {
             "name": "selected",

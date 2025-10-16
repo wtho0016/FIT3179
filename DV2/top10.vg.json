@@ -1,7 +1,12 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-
-      "title": "Top 20 Countries by Tourism Employment (Millions)",
+      "title": {
+            "text": "Top 20 Countries by Tourism Employment (Millions)",
+            "fontSize": 16,
+            "font": "sans-serif",
+            "anchor": "middle",
+            "color": "#333"
+        },
       "width": 450,
       "background": "transparent",
       "height": 450,

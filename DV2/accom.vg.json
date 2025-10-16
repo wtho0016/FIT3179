@@ -1,0 +1,57 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Countries by Number of Accomodation Establishments (2023)",
+    "fontSize": 16,
+    "font": "sans-serif",
+    "anchor": "middle",
+    "color": "#333"
+  },
+  "width": 700,
+  "height": 500,
+  "background": "transparent",
+  "data": {
+    "url": "https://raw.githubusercontent.com/wtho0016/FIT3179/main/DV2/Data/UN_Tourism_accommodation_hotels_11_2023.csv"
+  },
+  "transform": [
+    {
+      "filter": "isValid(datum['Number of establishments']) && datum['Number of establishments'] > 0"
+    }
+  ],
+  "mark": {
+    "type": "circle",
+    "opacity": 0.8
+  },
+  "encoding": {
+    "x": {
+      "field": "Country",
+      "type": "nominal",
+      "title": "Country",
+      "axis": {"labelAngle": -45}
+    },
+    "y": {
+      "field": "Number of establishments",
+      "type": "quantitative",
+      "title": "Number of Establishments"
+    },
+    "size": {
+      "field": "Number of establishments",
+      "type": "quantitative",
+      "title": "Bubble Size"
+    },
+    "color": {
+      "field": "Number of establishments",
+      "type": "quantitative",
+      "scale": {"scheme": "blues"},
+      "title": "Number of Establishments"
+    },
+    "tooltip": [
+      {"field": "Country", "title": "Country"},
+      {"field": "Number of establishments", "title": "Number of Establishments"}
+    ]
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "axis": {"grid": false}
+  }
+}
