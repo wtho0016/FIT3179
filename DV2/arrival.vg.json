@@ -1,0 +1,121 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "title": {
+            "text": "Top 10 Countries by Tourism Employment (Millions)",
+            "fontSize": 16,
+            "font": "sans-serif",
+            "anchor": "middle",
+            "color": "#333"
+        },
+      "background": "transparent",
+      "width": 800,
+      "height": 450,
+      "padding": {"bottom": 20},
+      "config": {
+      "view": {"stroke": "transparent", "fill": "transparent"},
+      "padding": {"left": 150}},
+      "data": { "url": "https://raw.githubusercontent.com/wtho0016/FIT3179/refs/heads/main/DV2/Data/Arrival.csv" },
+      "transform": [
+        {"filter": "datum.Top10Rank != null && datum.Top10Rank > 0 && datum.Top10Rank < 6"},
+        {
+          "window": [
+            {"field": "Year", "op": "lag", "as": "prev_Year"}
+          ],
+          "groupby": ["Country"],
+          "sort": [{"field": "Year", "order": "ascending"}]
+        },
+        {
+          "calculate": "datum.prev_Year === null || datum.Year - datum.prev_Year > 1 ? 1 : 0",
+          "as": "series_break"
+        },
+        {
+          "window": [{"op": "sum", "field": "series_break", "as": "series_group"}],
+          "groupby": ["Country"]
+        }
+      ],
+      "layer": [
+        {
+          "mark": {
+              "type": "line", 
+              "point":{
+                "size": 100,
+                "filled": true
+              },
+              "strokeWidth": 2.5,
+              "interpolate": "monotone"
+          },
+          "encoding": 
+          {
+            "x": 
+            { 
+              "field": "Year", 
+              "type": "ordinal", 
+              "title": "Year"
+            },
+            "y": 
+            { 
+              "field": "Top10Rank", 
+              "type": "ordinal", 
+              "title": "Country",
+              "sort": "ascending"
+            },
+            "color": {
+              "field": "Country",
+              "type": "nominal",
+              "legend": {"title": "Country", "orient": "top"},
+              "scale":{
+                "range": [
+                  "#FF6B6B",
+                  "#FFA500",
+                  "#FFD93D",
+                  "#4169E1",
+                  "#77c3ec",
+                  "#8A2BE2",
+                  "#FF69B4",
+                  "#A0522D",
+                  "#151B54"
+                ]
+              }
+            },
+            "detail": {
+              "field": "series_group",
+              "type": "nominal"
+            },
+            "tooltip": 
+            [
+            {"field": "Country", "type": "nominal"},
+            {"field": "Year", "type": "ordinal"},
+            {"field": "Value", "type": "quantitative"},
+            {"field": "Top10Rank", "type": "ordinal"}
+          ]
+        }
+      },
+      {
+        "transform": [
+          {"filter": "datum.Year == 2022"},
+          {
+            "lookup": "Country",
+            "from": {
+              "data": {
+                "values": [
+                  {"Country": "SPAIN", "flag": "https://flagcdn.com/w40/es.png"},
+                  {"Country": "ITALY", "flag": "https://flagcdn.com/w40/it.png"},
+                  {"Country": "POLAND", "flag": "https://flagcdn.com/w40/pl.png"},
+                  {"Country": "TÜRKIYE", "flag": "https://flagcdn.com/w40/tr.png"},
+                  {"Country": "MEXICO", "flag": "https://flagcdn.com/w40/mx.png"}
+                ]
+              },
+              "key": "Country",
+              "fields": ["flag"]
+            }
+          }
+        ],
+        "mark": {"type": "image", "width": 40, "xOffset": 50},
+        "encoding": {
+          "x": {"field": "Year", "type": "ordinal"},
+          "y": {"field": "Top10Rank", "type": "ordinal"},
+          "url": {"field": "flag"}
+        }
+      }
+  ]
+}
