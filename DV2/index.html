@@ -105,6 +105,19 @@
         text-justify: inter-word; /* spreads words evenly */
       }
 
+      .chart-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2 columns */
+        gap: 20px; /* spacing between charts */
+      }
+
+      .chart-container p {
+        text-align: center;
+        margin-top: 5px;
+        font-weight: bold;
+      }
+      </style>
+
 
     </style>
   </head>
@@ -194,14 +207,15 @@
     </div>
 
     <!-- Chart 5 -->
-      <div class="section-container chart-section">
+    <div class="section-container chart-section">
       <h2>Get A Job!</h2>
-      <h3>People Employed in the Toursim Sector</h3>
-      <div class="chart-row">
-        <!-- Left: Chart -->
-        <div class="chart-container">
-          <div id="GDP"></div>
-        </div>
+      <h3>People Employed in the Tourism Sector</h3>
+
+      <div class="chart-grid">
+        <div class="chart-container"><div id="GDP2008"></div><p>2008</p></div>
+        <div class="chart-container"><div id="GDP2019"></div><p>2019</p></div>
+        <div class="chart-container"><div id="GDP2020"></div><p>2020</p></div>
+        <div class="chart-container"><div id="GDP2021"></div><p>2021</p></div>
       </div>
     </div>
 

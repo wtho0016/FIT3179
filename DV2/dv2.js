@@ -5,8 +5,29 @@ var vg_1 = "mapdom.vg.json";
  // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
 }).catch(console.error);
 
-var GDP = "GDP.vg.json";
- vegaEmbed("#GDP", GDP, {
+var GDP2008 = "GDP2008.vg.json";
+ vegaEmbed("#GDP2008", GDP2008, {
+  background: "transparent"
+}).then(function(result) {
+ // Access the Vega view instance as result.view if needed
+}).catch(console.error);
+
+var GDP2020 = "GDP2020.vg.json";
+ vegaEmbed("#GDP2020", GDP2020, {
+  background: "transparent"
+}).then(function(result) {
+ // Access the Vega view instance as result.view if needed
+}).catch(console.error);
+
+var GDP2021 = "GDP2021.vg.json";
+ vegaEmbed("#GDP2021", GDP2021, {
+  background: "transparent"
+}).then(function(result) {
+ // Access the Vega view instance as result.view if needed
+}).catch(console.error);
+
+var GDP2019 = "GDP2019.vg.json";
+ vegaEmbed("#GDP2019", GDP2019, {
   background: "transparent"
 }).then(function(result) {
  // Access the Vega view instance as result.view if needed

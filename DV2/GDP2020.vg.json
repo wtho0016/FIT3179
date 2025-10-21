@@ -1,8 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "GDP (2020)",
-  "width": 800,
-  "height": 450,
+  "width": 400,
+  "view": { "fill": "transparent" },
+  "config": {
+      "view": {"stroke": null}
+  },
+  "background": "transparent",
   "projection": {"type": "equalEarth"},
   
   "layer": [
@@ -44,7 +48,7 @@
       ],
       "mark": {"type": "geoshape",
     "stroke": "white",
-    "strokeWidth": 0.6},
+    "strokeWidth": 0.4},
       "encoding": {
         "color": {
           "condition": {
@@ -54,8 +58,7 @@
           "field": "ValueAdjusted",
           "type": "quantitative",
           "scale": {"type": "sqrt"},
-          "title": "GDP",
-          "legend":null
+          "title": "GDP"
         },
         "tooltip": [
           {"field": "properties.NAME", "type": "nominal", "title": "Country"},
