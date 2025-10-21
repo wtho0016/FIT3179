@@ -1,0 +1,55 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "GDP by Country (2022)",
+  "width": 800,
+  "height": 450,
+  "view": { "fill": "transparent" },
+  "background": "transparent",
+  "projection": {"type": "equalEarth"},
+  "data": {
+    "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+    "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.ISO_N3",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/wtho0016/FIT3179/refs/heads/main/DV2/Data/GDP.csv",
+          "format": {"type": "csv"}
+        },
+        "key": "GeoCodeStr",
+        "fields": ["Value"]
+      }
+    },
+    {
+        "calculate": "('000' + datum.GeoAreaCode).slice(-3)",
+        "as": "GeoCodeStr"
+    },
+    {
+        "lookup": "properties.ISO_N3",
+        "from": {
+        "data": {
+            "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+            "format": {"type": "csv"}
+        },
+        "key": "GeoCodeStr",
+        "fields": ["Value"]
+        }
+    },
+    {"calculate": "datum.Value + 0.1", "as": "ValueAdjusted"}
+  ],
+  "mark": {"type": "geoshape"},
+  "encoding": {
+    "color": {
+      "field": "ValueAdjusted",
+      "type": "quantitative",
+        "scale": {"type": "linear", "domain":[0,35]}
+
+    },
+    "tooltip": [
+      {"field": "properties.NAME", "type": "nominal", "title": "Country"},
+      {"field": "Value", "type": "quantitative"}
+    ]
+  }
+}
