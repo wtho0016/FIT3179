@@ -1,19 +1,29 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "title": {
-            "text": "Top 10 Countries by Tourism Employment (Millions)",
-            "fontSize": 16,
-            "font": "sans-serif",
-            "anchor": "middle",
-            "color": "#333"
-        },
       "background": "transparent",
       "width": 800,
       "height": 450,
       "padding": {"bottom": 20},
       "config": {
-      "view": {"stroke": "transparent", "fill": "transparent"},
-      "padding": {"left": 150}},
+        "title": {"font": "Oxygen", "fontSize": 18},"axis": {
+        "labelFont": "Oxygen",
+        "titleFont": "Oxygen",
+        "labelFontSize": 12,
+        "titleFontSize": 14
+      },
+      "legend": {
+        "labelFont": "Oxygen",
+        "titleFont": "Oxygen",
+        "labelFontSize": 12,
+        "titleFontSize": 14
+      },
+      "text": {
+        "font": "Oxygen",
+        "fontSize": 12
+      },
+        "view": {"stroke": "transparent", "fill": "transparent"},
+        "padding": {"left": 150}
+      },
       "data": { "url": "https://raw.githubusercontent.com/wtho0016/FIT3179/refs/heads/main/DV2/Data/Arrival.csv" },
       "transform": [
         {"filter": "datum.Top10Rank != null && datum.Top10Rank > 0 && datum.Top10Rank < 6"},

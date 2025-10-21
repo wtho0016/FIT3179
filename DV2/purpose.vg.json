@@ -7,7 +7,22 @@
     "height": 450,
     "padding": {"bottom": 20},
     "config": {
-    "view": {"stroke": "transparent", "fill": "transparent"},
+        "title": {"font": "Oxygen", "fontSize": 18},"axis": {
+        "labelFont": "Oxygen",
+        "titleFont": "Oxygen",
+        "labelFontSize": 12,
+        "titleFontSize": 14
+      },
+      "legend": {
+        "labelFont": "Oxygen",
+        "titleFont": "Oxygen",
+        "labelFontSize": 12,
+        "titleFontSize": 12
+      },
+      "text": {
+        "font": "Oxygen",
+        "fontSize": 12
+      },    "view": {"stroke": "transparent", "fill": "transparent"},
     "padding": {"left": 150}},
     "params": [
         {
@@ -18,7 +33,9 @@
                 "min": 1995,
                 "max": 2022,
                 "step": 1,
-                "name": "Select Year: "
+                "name": "Select Year: ",
+                "element": "#vis"
+
         }
         }
     ],
@@ -53,7 +70,9 @@
                     "scale":{
                                 "domain": ["Personal", "Business and professional"],
                                 "range": ["#0492C2", "#051094"]  
-                            } 
+                            },
+                    "legend": {"orient":"top", "title": "Arrival Purpose"}
+                            
                 },
     "order": {"field": "stackOrder", "type": "quantitative"},
         "tooltip": [

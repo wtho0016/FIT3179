@@ -9,11 +9,27 @@
     "height": 450,
     "padding": {"bottom": 20},
     "config": {
+        "title": {"font": "Oxygen", "fontSize": 18},"axis": {
+        "labelFont": "Oxygen",
+        "titleFont": "Oxygen",
+        "labelFontSize": 12,
+        "titleFontSize": 14
+      },
+      "legend": {
+        "labelFont": "Oxygen",
+        "titleFont": "Oxygen",
+        "labelFontSize": 12,
+        "titleFontSize": 12
+      },
+      "text": {
+        "font": "Oxygen",
+        "fontSize": 12
+      },
     "view": {"stroke": "transparent", "fill": "transparent"},
     "padding": {"left": 150}},
     "params": [
         {
-        "name": "year_select",
+        "name": "year_chosen",
         "value": 2022,
         "bind": {
                 "input": "range",
@@ -26,7 +42,7 @@
     ],
   "transform": [
     {"filter": "isValid(datum['Average length of stay']) && isValid(datum['Occupancy rate / rooms']) && isValid(datum['Number of rooms']) && datum['Average length of stay'] > 0 && datum['Occupancy rate / rooms'] > 0 && datum['Number of rooms'] > 0"},
-    {"filter": "datum.Year == year_select"}
+    {"filter": "datum.Year == year_chosen"}
   ],
   "mark": {
     "type": "circle",

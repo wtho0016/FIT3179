@@ -1,9 +1,24 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "GDP (2021)",
   "width": 400,
   "view": { "fill": "transparent" },
   "config": {
+        "title": {"font": "Oxygen", "fontSize": 18},"axis": {
+        "labelFont": "Oxygen",
+        "titleFont": "Oxygen",
+        "labelFontSize": 12,
+        "titleFontSize": 14
+      },
+      "legend": {
+        "labelFont": "Oxygen",
+        "titleFont": "Oxygen",
+        "labelFontSize": 12,
+        "titleFontSize": 14
+      },
+      "text": {
+        "font": "Oxygen",
+        "fontSize": 12
+      },
       "view": {"stroke": null}
   },
   "background": "transparent",

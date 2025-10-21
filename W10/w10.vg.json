@@ -10,7 +10,7 @@
       "padding": {"left": 150}},
       "params": [
           {
-          "name": "year_selection",
+          "name": "year_chose",
           "value": 2023,
           "bind": {
             "input": "range",
@@ -25,7 +25,7 @@
       "transform": [
         { "calculate": "toNumber(trim(datum.Value))", "as": "Value_num" },
         { "calculate": "format(datum.Value / 1000000, '.2f') ", "as": "tooltip_text"},
-        { "filter": "datum.TimePeriod == year_selection" },
+        { "filter": "datum.TimePeriod == year_chose" },
         { "window": [{"op": "rank", "as": "rank"}], "sort": [{"field": "Value_num", "order": "descending"}]},
         { "filter": "datum.rank <= 20" }
       ],

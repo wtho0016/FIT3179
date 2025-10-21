@@ -1,19 +1,28 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 600,
-    "height": 450,
+    "height": 400,
     "view": { "fill": "transparent" },
     "config": {
+        "title": {"font": "Oxygen", "fontSize": 18},"axis": {
+        "labelFont": "Oxygen",
+        "titleFont": "Oxygen",
+        "labelFontSize": 12,
+        "titleFontSize": 14
+      },
+      "legend": {
+        "labelFont": "Oxygen",
+        "titleFont": "Oxygen",
+        "labelFontSize": 12,
+        "titleFontSize": 12
+      },
+      "text": {
+        "font": "Oxygen",
+        "fontSize": 12
+      },
         "view": {"stroke": null}
     },
     "background": "transparent",
-    "title": {
-        "text": "Domestic Tourism Trips by Country, 2022 (Thousands)",
-        "fontSize": 16,
-        "font": "sans-serif",
-        "anchor": "middle",
-        "color": "#333"
-    },
     "projection": {"type": "equalEarth"},
         "params": [
             {
@@ -76,7 +85,7 @@
                         "title": "Domestic Visitors (thousands)", 
                         "scale": {"range": [10,1000]}, 
                         "legend": {
-                        "orient": "bottom-left",
+                        "orient": "bottom",
                         "direction": "horizontal",
                         "padding": 5,
                         "offset": 5
@@ -85,6 +94,12 @@
                     "color": {
                         "field": "Region",
                         "type": "nominal",
+                        "legend":{
+                        "orient": "bottom-left",
+                        "direction": "horizontal",
+                        "padding": 5,
+                        "offset": 5
+                        },
                         "scale": {
                         "domain": ["Asia", "Europe", "North America", "Africa", "Oceania", "South America"],
                         "range": ["#1f78b4", "#ff7f00", "#e31a1c", "#6a3d9a", "#111154", "#b15928"]
@@ -122,7 +137,7 @@
                     "encoding": {
                         "longitude": {"field": "text_lon"},
                         "latitude": {"field": "text_lat"},
-                        "text": {"value": "|||||||||||||||||||||||||||||||"}
+                        "text": {"value": "||||||||||||||||||||"}
                     }
                     },
                     {
@@ -163,7 +178,7 @@
                     "encoding": {
                         "longitude": {"field": "text_lon"},
                         "latitude": {"field": "text_lat"},
-                        "text": {"value": "||||||||||||||||||||"}
+                        "text": {"value": "||||||||||||||"}
                     }
                     },
                     {
@@ -204,7 +219,7 @@
                     "encoding": {
                         "longitude": {"field": "text_lon"},
                         "latitude": {"field": "text_lat"},
-                        "text": {"value": "|||||||||||||||||||||||||||||||"}
+                        "text": {"value": "|||||||||||||||||||||"}
                     }
                     },
                     {
