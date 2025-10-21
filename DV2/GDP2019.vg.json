@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "GDP (2008)",
+  "title": "GDP (2019)",
   "width": 800,
   "height": 450,
   "projection": {"type": "equalEarth"},
@@ -30,7 +30,7 @@
           "lookup": "properties.ISO_N3",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/wtho0016/FIT3179/refs/heads/main/DV2/Data/GDP_2008.csv",
+              "url": "https://raw.githubusercontent.com/wtho0016/FIT3179/refs/heads/main/DV2/Data/GDP_2019.csv",
               "format": {"type": "csv"}
             },
             "key": "GeoCodeStr",
