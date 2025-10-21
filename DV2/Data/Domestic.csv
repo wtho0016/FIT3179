@@ -1,0 +1,245 @@
+Country,Latitude (average),Longitude (average),Total (thousands),Overnight (thousands),Same-day (thousands),Region
+Afghanistan,33.0,65.0,..,..,..,Asia
+Albania,41.0,20.0,..,..,..,Europe
+Algeria,28.0,3.0,..,..,..,Africa
+American Samoa,-14.3333,-170.0,..,..,..,Oceania
+Andorra,42.5,1.6,..,..,..,Europe
+Angola,-12.5,18.5,..,..,..,Africa
+Anguilla,18.25,-63.1667,..,..,..,North America
+Antarctica,-90.0,0.0,..,..,..,Unknown
+Antigua and Barbuda,17.05,-61.8,..,..,..,North America
+Argentina,-34.0,-64.0,113132.4,50331,62802,South America
+Armenia,40.0,45.0,..,1930,..,Asia
+Aruba,12.5,-69.9667,..,..,..,North America
+Australia,-27.0,133.0,309626,108212,201414,Oceania
+Austria,47.3333,13.3333,..,13420,..,Europe
+Azerbaijan,40.5,47.5,17778,13931,3847,Asia
+Bahamas,24.25,-76.0,..,..,..,North America
+Bahrain,26.0,50.55,..,..,..,Asia
+Bangladesh,24.0,90.0,..,..,..,Asia
+Barbados,13.1667,-59.5333,..,..,..,North America
+Belarus,53.0,28.0,4290,2888,1402,Europe
+Belgium,50.8333,4.0,..,9406,..,Europe
+Belize,17.25,-88.75,..,..,..,North America
+Benin,9.5,2.25,..,..,..,Africa
+Bermuda,32.3333,-64.75,..,..,..,North America
+Bhutan,27.5,90.5,..,..,..,Asia
+"Bolivia, Plurinational State of",-17.0,-65.0,..,..,..,South America
+Bosnia and Herzegovina,44.0,18.0,..,..,..,Europe
+Botswana,-22.0,24.0,..,..,..,Africa
+Bouvet Island,-54.4333,3.4,..,..,..,Antarctica
+Brazil,-10.0,-55.0,..,..,..,South America
+British Indian Ocean Territory,-6.0,71.5,..,..,..,Asia
+Brunei Darussalam,4.5,114.6667,..,..,..,Asia
+Bulgaria,43.0,25.0,6397,4132,2266,Europe
+Burkina Faso,13.0,-2.0,..,..,..,Africa
+Burundi,-3.5,30.0,..,..,..,Africa
+Cambodia,13.0,105.0,13934,..,..,Asia
+Cameroon,6.0,12.0,..,..,..,Africa
+Canada,60.0,-95.0,258831,90833,167998,North America
+Cape Verde,16.0,-24.0,..,..,..,Unknown
+Cayman Islands,19.5,-80.5,..,..,..,North America
+Central African Republic,7.0,21.0,..,..,..,Africa
+Chad,15.0,19.0,..,..,..,Africa
+Chile,-30.0,-71.0,85879,61093,24.787,South America
+China,35.0,105.0,2530000,..,..,Asia
+Christmas Island,-10.5,105.6667,..,..,..,Asia
+Cocos (Keeling) Islands,-12.5,96.8333,..,..,..,Asia
+Colombia,4.0,-72.0,133260,..,..,South America
+Comoros,-12.1667,44.25,..,..,..,Africa
+Congo,-1.0,15.0,..,..,..,Africa
+"Congo, the Democratic Republic of the",0.0,25.0,..,..,..,Africa
+Cook Islands,-21.2333,-159.7667,..,..,..,Oceania
+Costa Rica,10.0,-84.0,1305,..,..,North America
+Côte d'Ivoire,8.0,-5.0,7122,3148,3974,Africa
+Croatia,45.1667,15.5,..,..,..,Europe
+Cuba,21.5,-80.0,..,..,..,North America
+Cyprus,35.0,33.0,..,..,..,Asia
+Czech Republic,49.75,15.5,..,26149,..,Europe
+Denmark,56.0,10.0,67066,20694,46372,Europe
+Djibouti,11.5,43.0,..,..,..,Africa
+Dominica,15.4167,-61.3333,..,..,..,North America
+Dominican Republic,19.0,-70.6667,..,..,..,North America
+Ecuador,-2.0,-77.5,13937,9756,4181,South America
+Egypt,27.0,30.0,..,..,..,Africa
+El Salvador,13.8333,-88.9167,..,..,..,North America
+Equatorial Guinea,2.0,10.0,..,..,..,Africa
+Eritrea,15.0,39.0,..,..,..,Africa
+Estonia,59.0,26.0,219,2640,..,Europe
+Ethiopia,8.0,38.0,..,..,..,Africa
+Falkland Islands (Malvinas),-51.75,-59.0,..,..,..,South America
+Faroe Islands,62.0,-7.0,..,..,..,Europe
+Fiji,-18.0,175.0,..,..,..,Oceania
+Finland,64.0,26.0,..,27100,..,Europe
+France,46.0,2.0,274644,201310,73335,Europe
+French Guiana,4.0,-53.0,..,..,..,South America
+French Polynesia,-15.0,-140.0,..,..,..,Oceania
+French Southern Territories,-43.0,67.0,..,..,..,Unknown
+Gabon,-1.0,11.75,..,..,..,Africa
+Gambia,13.4667,-16.5667,..,..,..,Africa
+Georgia,42.0,43.5,16333,7692,8641,Asia
+Germany,51.0,9.0,..,135069,..,Europe
+Ghana,8.0,-2.0,..,..,..,Africa
+Gibraltar,36.1833,-5.3667,..,..,..,Europe
+Greece,39.0,22.0,21682,5990,15692,Europe
+Greenland,72.0,-40.0,..,..,..,North America
+Grenada,12.1167,-61.6667,..,..,..,North America
+Guadeloupe,16.25,-61.5833,..,..,..,North America
+Guam,13.4667,144.7833,..,..,..,Oceania
+Guatemala,15.5,-90.25,..,..,..,North America
+Guernsey,49.5,-2.56,..,..,..,Europe
+Guinea,11.0,-10.0,..,..,..,Africa
+Guinea-Bissau,12.0,-15.0,..,..,..,Africa
+Guyana,5.0,-59.0,..,..,..,South America
+Haiti,19.0,-72.4167,..,..,..,North America
+Heard Island and McDonald Islands,-53.1,72.5167,..,..,..,Antarctica
+Holy See (Vatican City State),41.9,12.45,..,..,..,Unknown
+Honduras,15.0,-86.5,..,..,..,North America
+Hong Kong,22.25,114.1667,..,..,..,Asia
+Hungary,47.0,20.0,45511,12499,33013,Europe
+Iceland,65.0,-18.0,..,..,..,Europe
+India,20.0,77.0,..,1731010,..,Asia
+Indonesia,-5.0,120.0,734865,497334,237531,Asia
+"Iran, Islamic Republic of",32.0,53.0,..,..,..,Asia
+Iraq,33.0,44.0,..,..,..,Asia
+Ireland,53.0,-8.0,..,..,..,Europe
+Isle of Man,54.23,-4.55,..,..,..,Europe
+Israel,31.5,34.75,..,..,..,Asia
+Italy,42.8333,12.8333,90260,43996,46264,Europe
+Jamaica,18.25,-77.5,..,..,..,North America
+Japan,36.0,138.0,417854,232467,185387,Asia
+Jersey,49.21,-2.13,..,..,..,Europe
+Jordan,31.0,36.0,..,..,..,Asia
+Kazakhstan,48.0,68.0,8868,7721,1147,Asia
+Kenya,1.0,38.0,..,..,..,Africa
+Kiribati,1.4167,173.0,..,..,..,Oceania
+"Korea, Democratic People's Republic of",40.0,127.0,..,..,..,Asia
+"Korea, Republic of",37.0,127.5,283722,116589,167133,Asia
+Kuwait,29.3375,47.6581,..,..,..,Asia
+Kyrgyzstan,41.0,75.0,5959,..,..,Asia
+Lao People's Democratic Republic,18.0,105.0,..,..,..,Asia
+Latvia,57.0,25.0,9296,2828,6468,Europe
+Lebanon,33.8333,35.8333,..,..,..,Asia
+Lesotho,-29.5,28.5,..,..,..,Africa
+Liberia,6.5,-9.5,..,..,..,Africa
+Libyan Arab Jamahiriya,25.0,17.0,..,..,..,Unknown
+Liechtenstein,47.1667,9.5333,..,..,..,Europe
+Lithuania,56.0,24.0,12185,3595,8590,Europe
+Luxembourg,49.75,6.1667,..,155,..,Europe
+Macao,22.1667,113.55,..,..,..,Asia
+"Macedonia, the former Yugoslav Republic of",41.8333,22.0,..,..,..,Unknown
+Madagascar,-20.0,47.0,..,..,..,Africa
+Malawi,-13.5,34.0,..,..,..,Africa
+Malaysia,2.5,112.5,207785,71916,135869,Asia
+Maldives,3.25,73.0,..,..,..,Asia
+Mali,17.0,-4.0,..,24,..,Africa
+Malta,35.8333,14.5833,..,369,..,Europe
+Marshall Islands,9.0,168.0,..,..,..,Oceania
+Martinique,14.6667,-61.0,..,..,..,North America
+Mauritania,20.0,-12.0,..,..,..,Africa
+Mauritius,-20.2833,57.55,..,..,..,Africa
+Mayotte,-12.8333,45.1667,..,..,..,Africa
+Mexico,23.0,-102.0,..,..,..,North America
+"Micronesia, Federated States of",6.9167,158.25,..,..,..,Oceania
+"Moldova, Republic of",47.0,29.0,124,23,100,Europe
+Monaco,43.7333,7.4,..,..,..,Europe
+Mongolia,46.0,105.0,..,..,..,Asia
+Montenegro,42.0,19.0,..,..,..,Europe
+Montserrat,16.75,-62.2,..,..,..,North America
+Morocco,32.0,-5.0,..,..,..,Africa
+Mozambique,-18.25,35.0,..,..,..,Africa
+Myanmar,22.0,98.0,..,..,..,Asia
+Namibia,-22.0,17.0,..,..,..,Africa
+Nauru,-0.5333,166.9167,..,..,..,Oceania
+Nepal,28.0,84.0,..,..,..,Asia
+Netherlands,52.5,5.75,..,21490,..,Europe
+Netherlands Antilles,12.25,-68.75,..,..,..,Unknown
+New Caledonia,-21.5,165.5,..,..,..,Oceania
+New Zealand,-41.0,174.0,..,..,..,Oceania
+Nicaragua,13.0,-85.0,..,..,..,North America
+Niger,16.0,8.0,..,..,..,Africa
+Nigeria,10.0,8.0,4128,1755,2373,Africa
+Niue,-19.0333,-169.8667,..,..,..,Oceania
+Norfolk Island,-29.0333,167.95,..,..,..,Oceania
+Northern Mariana Islands,15.2,145.75,..,..,..,Oceania
+Norway,62.0,10.0,..,21780,..,Europe
+Oman,21.0,57.0,..,..,..,Asia
+Pakistan,30.0,70.0,..,..,..,Asia
+Palau,7.5,134.5,..,..,..,Oceania
+"Palestinian Territory, Occupied",32.0,35.25,..,..,..,Unknown
+Panama,9.0,-80.0,..,..,..,North America
+Papua New Guinea,-6.0,147.0,..,..,..,Oceania
+Paraguay,-23.0,-58.0,..,..,..,South America
+Peru,-10.0,-76.0,..,..,..,South America
+Philippines,13.0,122.0,102958,..,..,Asia
+Pitcairn,-24.7,-127.4,..,..,..,Unknown
+Poland,52.0,20.0,..,51702,..,Europe
+Portugal,39.5,-8.0,..,19969,..,Europe
+Puerto Rico,18.25,-66.5,..,..,..,North America
+Qatar,25.5,51.25,..,..,..,Asia
+Réunion,-21.1,55.6,..,..,..,Africa
+Romania,46.0,25.0,51364,16261,35103,Europe
+Russian Federation,60.0,100.0,..,..,..,Europe
+Rwanda,-2.0,30.0,..,..,..,Africa
+"Saint Helena, Ascension and Tristan da Cunha",-15.9333,-5.7,..,..,..,Africa
+Saint Kitts and Nevis,17.3333,-62.75,..,..,..,North America
+Saint Lucia,13.8833,-61.1333,..,..,..,North America
+Saint Pierre and Miquelon,46.8333,-56.3333,..,..,..,North America
+Saint Vincent and the Grenadines,13.25,-61.2,..,..,..,North America
+Samoa,-13.5833,-172.3333,..,..,..,Oceania
+San Marino,43.7667,12.4167,..,..,..,Europe
+Sao Tome and Principe,1.0,7.0,..,..,..,Africa
+Saudi Arabia,25.0,45.0,125817,77837,47980,Asia
+Senegal,14.0,-14.0,..,..,..,Africa
+Serbia,44.0,21.0,..,..,..,Europe
+Seychelles,-4.5833,55.6667,..,..,..,Africa
+Sierra Leone,8.5,-11.5,..,..,..,Africa
+Singapore,1.3667,103.8,..,..,..,Asia
+Slovakia,48.6667,19.5,..,..,..,Europe
+Slovenia,46.0,15.0,..,2773,..,Europe
+Solomon Islands,-8.0,159.0,..,..,..,Oceania
+Somalia,10.0,49.0,..,..,..,Africa
+South Africa,-29.0,24.0,210365,34000,176365,Africa
+South Georgia and the South Sandwich Islands,-54.5,-37.0,..,..,..,South America
+South Sudan,8.0,30.0,..,..,..,Africa
+Spain,40.0,-4.0,353920,147713,206207,Europe
+Sri Lanka,7.0,81.0,..,..,..,Asia
+Sudan,15.0,30.0,..,..,..,Africa
+Suriname,4.0,-56.0,..,..,..,South America
+Svalbard and Jan Mayen,78.0,20.0,..,..,..,Europe
+Swaziland,-26.5,31.5,..,..,..,Unknown
+Sweden,62.0,15.0,..,..,..,Europe
+Switzerland,47.0,8.0,59994,7168,52827,Europe
+Syrian Arab Republic,35.0,38.0,..,..,..,Asia
+"Taiwan, Province of China",23.5,121.0,168558,48208,120350,Asia
+Tajikistan,39.0,71.0,..,..,..,Asia
+"Tanzania, United Republic of",-6.0,35.0,..,..,..,Africa
+Thailand,15.0,100.0,..,..,..,Asia
+Timor-Leste,-8.55,125.5167,..,..,..,Unknown
+Togo,8.0,1.1667,..,..,..,Africa
+Tokelau,-9.0,-172.0,..,..,..,Oceania
+Tonga,-20.0,-175.0,..,..,..,Oceania
+Trinidad and Tobago,11.0,-61.0,1337,..,..,North America
+Tunisia,34.0,9.0,..,..,..,Africa
+Turkey,39.0,35.0,76567,52327,24240,Unknown
+Turkmenistan,40.0,60.0,..,..,..,Asia
+Turks and Caicos Islands,21.75,-71.5833,..,..,..,North America
+Tuvalu,-8.0,178.0,..,..,..,Oceania
+Uganda,1.0,32.0,23608,9456,14152,Africa
+Ukraine,49.0,32.0,..,..,..,Europe
+United Arab Emirates,24.0,54.0,..,..,..,Asia
+United Kingdom,54.0,-2.0,2914000,126000,2788000,Europe
+United States,38.0,-97.0,..,..,..,North America
+United States Minor Outlying Islands,19.2833,166.6,..,..,..,Unknown
+Uruguay,-33.0,-56.0,..,..,..,South America
+Uzbekistan,41.0,64.0,..,..,..,Asia
+Vanuatu,-16.0,167.0,..,..,..,Oceania
+"Venezuela, Bolivarian Republic of",8.0,-66.0,..,..,..,South America
+Viet Nam,16.0,106.0,101300,66700,34600,Asia
+"Virgin Islands, British",18.5,-64.5,..,..,..,North America
+"Virgin Islands, U.S.",18.3333,-64.8333,..,..,..,North America
+Wallis and Futuna,-13.3,-176.2,..,..,..,Oceania
+Western Sahara,24.5,-13.0,..,..,..,Unknown
+Yemen,15.0,48.0,..,..,..,Asia
+Zambia,-15.0,30.0,..,..,..,Africa
+Zimbabwe,-20.0,30.0,21164,12275,8889,Africa
