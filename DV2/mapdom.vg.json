@@ -28,7 +28,8 @@
                 ],
                 "name": "Metric: "
             }
-        }],
+        }
+    ],
       "layer": [{
                     "data": {"sphere": true},
                     "mark": {"type": "geoshape", "fill": "lightblue","stroke": null},
@@ -54,7 +55,7 @@
                 },
                 {
                     "data": {
-                                "url": "https://raw.githubusercontent.com/wtho0016/FIT3179/refs/heads/main/DV2/Data/Domestic_Trips_2022.csv"
+                                "url": "https://raw.githubusercontent.com/wtho0016/FIT3179/refs/heads/main/DV2/Data/Domestic.csv"
                             },
                             
                     "transform": [  
@@ -81,7 +82,14 @@
                             "offset": 5
                         }
                         },
-                        "color": {"value": "steelblue"},
+                        "color": {
+                            "field": "Region",
+                            "type": "nominal",
+                            "scale": {
+                            "domain": ["Asia", "Europe", "North America", "Africa", "Oceania", "South America"],
+                            "range": ["#1f78b4", "#ff7f00", "#e31a1c", "#6a3d9a", "#111154", "#b15928"]
+                            }
+                        },
                         "tooltip": [
                             {"field": "Country", "type": "nominal", "title": "Country"},
                             {"field": "metric_value", "type": "quantitative", "title": "Domestic Visitors (thousands)"}
@@ -129,6 +137,46 @@
                     },
                     
 
+                    {
+                    "data": {
+                        "url": "https://raw.githubusercontent.com/wtho0016/FIT3179/main/W10/country.csv"
+                    },
+                    "transform": [
+                        {"filter": "datum.Country == 'India'"},
+                        {"calculate": "datum['Longitude (average)'] +20", "as": "text_lon"},
+                        {"calculate": "datum['Latitude (average)'] + 90", "as": "text_lat"},
+                        {"calculate": "'High overnight travel in India reflects ; its large population and many multi-day ;domestic trips.'", "as": "text_annotation_raw"},
+                        {"calculate": "split(datum.text_annotation_raw, ';')", "as": "text_annotation"}
+                    ],
+                    "layer": [
+                        {
+                        "mark": {"type": "rule", "color": "black", "strokeWidth": 1},
+                        "encoding": {
+                            "longitude": {"field": "Longitude (average)"},
+                            "latitude": {"field": "Latitude (average)"},
+                            "longitude2": {"field": "text_lon"},
+                            "latitude2": {"field": "text_lat"}
+                        }
+                        },
+                        {
+                        "mark": {"type": "text", "align": "left", "dx":-25, "dy": -10, "fontSize": 35, "stroke": "whitesmoke", "strokeWidth": 10},   
+                        "encoding": {
+                            "longitude": {"field": "text_lon"},
+                            "latitude": {"field": "text_lat"},
+                            "text": {"value": "||||||||||||||||||||"}
+                        }
+                        },
+                        {
+                        "mark": {"type": "text", "align": "left", "dx":-20, "dy": -20, "fontSize": 10},   
+                        "encoding": {
+                            "longitude": {"field": "text_lon"},
+                            "latitude": {"field": "text_lat"},
+                            "text": {"field": "text_annotation"}
+                        }
+                        }
+                    ]
+                    },
+                    
 
                     {
                     "data": {
