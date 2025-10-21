@@ -1,0 +1,245 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+  "description": "Sunburst chart - Complete hierarchy",
+  "width": 800,
+  "height": 800,
+  "padding": 5,
+
+  "data": [
+    {
+      "name": "whc",
+      "url": "https://raw.githubusercontent.com/wtho0016/FIT3179/refs/heads/main/DV2/Data/WHC_2025.csv",
+      "format": {"type": "csv"}
+    },
+    {
+      "name": "world_root",
+      "values": [{"id": "World Heritage", "name": "World Heritage Sites", "size": 0}]
+    },
+    {
+      "name": "regions",
+      "source": "whc",
+      "transform": [
+        {"type": "aggregate", "groupby": ["region_en"]},
+        {"type": "formula", "as": "id", "expr": "datum.region_en"},
+        {"type": "formula", "as": "parent", "expr": "'World Heritage'"},
+        {"type": "formula", "as": "name", "expr": "datum.region_en"},
+        {"type": "formula", "as": "size", "expr": "1"}
+      ]
+    },
+    {
+      "name": "countries", 
+      "source": "whc",
+      "transform": [
+        {"type": "aggregate", "groupby": ["region_en", "states_name_en"]},
+        {"type": "formula", "as": "id", "expr": "join([datum.region_en, datum.states_name_en], '/')"},
+        {"type": "formula", "as": "parent", "expr": "datum.region_en"},
+        {"type": "formula", "as": "name", "expr": "datum.states_name_en"},
+        {"type": "formula", "as": "size", "expr": "1"}
+      ]
+    },
+    {
+      "name": "categories",
+      "source": "whc",
+      "transform": [
+        {"type": "aggregate", "groupby": ["region_en", "states_name_en", "category"]},
+        {"type": "formula", "as": "id", "expr": "join([datum.region_en, datum.states_name_en, datum.category], '/')"},
+        {"type": "formula", "as": "parent", "expr": "join([datum.region_en, datum.states_name_en], '/')"},
+        {"type": "formula", "as": "name", "expr": "datum.category"},
+        {"type": "formula", "as": "size", "expr": "1"}
+      ]
+    },
+    {
+      "name": "sites",
+      "source": "whc",
+      "transform": [
+        {"type": "formula", "as": "id", "expr": "join([datum.region_en, datum.states_name_en, datum.category, datum.name_en], '/')"},
+        {"type": "formula", "as": "parent", "expr": "join([datum.region_en, datum.states_name_en, datum.category], '/')"},
+        {"type": "formula", "as": "name", "expr": "datum.name_en"},
+        {"type": "formula", "as": "size", "expr": "1"}
+      ]
+    },
+    {
+      "name": "tree_data",
+      "source": ["world_root", "regions", "countries", "categories", "sites"],
+      "transform": [
+        {
+          "type": "stratify",
+          "key": "id",
+          "parentKey": "parent"
+        },
+        {
+          "type": "partition",
+          "field": "size",
+          "size": [{"signal": "2 * PI"}, {"signal": "width / 2"}],
+          "as": ["a0", "r0", "a1", "r1", "depth", "children"]
+        }
+      ]
+    },
+    {
+        "name": "sectors",
+        "values": [
+            {
+                "id": ["Asia and the","Pacific/China"],
+                "text_x": 420, "text_y": 280
+            },
+            {
+                "id": ["Europe and", "North America"],
+                "text_x": 401, "text_y": 460
+            },
+            {
+                "id": ["Arab States"],
+                "text_x": 310, "text_y": 360
+            },
+            {
+                "id": ["Africa"],
+                "text_x": 310, "text_y": 270
+            },
+            {
+                "id": ["Latin America", "and the Caribbean"],
+                "text_x": 390, "text_y": 180
+            }
+        ]
+    },
+    {
+    "name": "sunburst_annotations",
+    "values": [
+        {
+            "id": "Asia and the Pacific/China",
+            "line_x1": 450, "line_y1": 200,
+            "line_x2": 600, "line_y2": 25, 
+            "text_x": 610, "text_y": 0,
+            "label": ["China's vast territory & long", "history result in its high", "number of sites."], 
+            "depth":2
+        },
+        {
+            "id": "Italy",
+            "line_x1": 500, "line_y1": 550,
+            "line_x2": 700, "line_y2": 730, 
+            "text_x": 700, "text_y": 700,
+            "label": ["Roman Empire & Renaissance legacy", "created most UNESCO sites in Italy."],
+            "depth":2
+        },
+        {
+            "id": "Europe and North America", 
+            "line_x1": 350, "line_y1": 500, 
+            "line_x2": 100, "line_y2": 730,
+            "text_x": 120, "text_y": 650,
+            "label": ["Rich cultural history & early", "preservation efforts high site","count in Europe and North America"], 
+            "depth": 1
+        }
+    ]
+    },
+    {
+    "name": "text_annotation",
+    "source": "sunburst_annotations",
+    "transform": [
+        {
+        "type": "flatten",
+        "fields": ["label"]
+        },
+        {
+        "type": "window", 
+        "ops": ["row_number"],
+        "as": ["index"]
+        }
+    ]
+    },
+    {
+    "name": "sector_text",
+    "source": "sectors",
+    "transform": [
+        {
+        "type": "flatten",
+        "fields": ["id"]
+        },
+        {
+        "type": "window", 
+        "ops": ["row_number"],
+        "as": ["index"]
+        }
+    ]
+    }
+    ],
+
+  "scales": [
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": {"data": "tree_data", "field": "depth"},
+    "range": ["#8c510a", "#bf812d", "#dfc27d", "#80cdc1", "#35978f"]
+    }
+  ],
+
+  "marks": [
+    {
+      "type": "arc",
+      "from": {"data": "tree_data"},
+      "encode": {
+        "enter": {
+          "x": {"signal": "width / 2"},
+          "y": {"signal": "height / 2"},
+          "fill": {"scale": "color", "field": "depth"},
+          "tooltip": {"signal": "datum.name"}
+        },
+        "update": {
+          "startAngle": {"field": "a0"},
+          "endAngle": {"field": "a1"},
+          "innerRadius": {"field": "r0"},
+          "outerRadius": {"field": "r1"},
+          "stroke": {"value": "white"},
+          "strokeWidth": {"value": 0.5}
+        }
+      }
+    },
+    {
+    "type": "text", 
+    "from": {"data": "sector_text"},
+    "encode": {
+        "enter": {
+        "fill": {"value": "black"},
+        "fontWeight": {"value": "bold"},
+        "fontSize": {"value": 11},
+        "align": {"signal": "datum.text_x > 400 ? 'left' : 'right'"}
+        },
+        "update": {
+        "x": {"field": "text_x"},
+        "y": {"signal": "datum.text_y + (datum.index * 15)"},
+        "text": {"field": "id"}
+        }
+    }
+    },
+    {
+    "type": "text", 
+    "from": {"data": "text_annotation"},
+    "encode": {
+        "enter": {
+        "fill": {"value": "black"},
+        "fontSize": {"value": 12},
+        "align": {"signal": "datum.text_x > 400 ? 'left' : 'right'"}
+        },
+        "update": {
+        "x": {"field": "text_x"},
+        "y": {"signal": "datum.text_y + (datum.index * 15)"},
+        "text": {"field": "label"}
+        }
+    }
+    },
+    {
+    "type": "rule",
+    "from": {"data": "sunburst_annotations"},
+    "encode": {
+        "enter": {
+            "enter": { "zindex": {"value": 1} },
+        "stroke": {"value": "black"},
+        "strokeWidth": {"value": 1}
+        },
+        "update": {
+        "x": {"field": "line_x1"},
+        "y": {"field": "line_y1"},
+        "x2": {"field": "line_x2"},
+        "y2": {"field": "line_y2"}
+        }
+    }
+    }
+  ]
+}
