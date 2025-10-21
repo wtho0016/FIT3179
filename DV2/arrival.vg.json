@@ -39,6 +39,10 @@
           "as": "series_break"
         },
         {
+          "calculate": "round(datum.rank)",
+          "as": "rank_int"
+        },
+        {
           "window": [{"op": "sum", "field": "series_break", "as": "series_group"}],
           "groupby": ["Country"]
         }
@@ -60,13 +64,20 @@
             { 
               "field": "Year", 
               "type": "ordinal", 
+              "axis": {
+                "titlePadding": 15
+              },
               "title": "Year"
             },
             "y": 
             { 
               "field": "Top10Rank", 
               "type": "ordinal", 
-              "title": "Country",
+              "axis": {
+                "title": "Rank",
+                "titlePadding": 15,
+                "format": "d" 
+              },
               "sort": "ascending"
             },
             "color": {
@@ -95,9 +106,59 @@
             [
             {"field": "Country", "type": "nominal"},
             {"field": "Year", "type": "ordinal"},
-            {"field": "Value", "type": "quantitative"},
-            {"field": "Top10Rank", "type": "ordinal"}
+            {"field": "Value", "type": "quantitative", "title":"Arrivals (Thousands)"},
+            {"field": "Top10Rank", "type": "ordinal","title":"Rank", "format":"d"}
           ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "dy":170, 
+          "dx": -80,       
+          "fontWeight": "bold",
+          "fontSize": 12,
+          "color": "black"
+        },
+        "transform": [
+          {"filter": "datum.Country == 'CHINA' && datum.Top10Rank == 3 && datum.Year == 2019"}
+        ,{"calculate": "'After 2019, China dropped; in rank due to nationwide; COVID-19 control measures'",
+          "as": "text_annotation_raw"
+          },
+          {
+          "calculate": "split(datum.text_annotation_raw,';')",
+          "as": "annotation"
+          }
+        ],
+          "encoding": {
+          "x": {"field": "Year", "type": "ordinal"},
+          "y": {"field": "Top10Rank", "type": "quantitative","axis":null},
+          "text": {"field": "annotation"}
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "dy":75, 
+          "dx": -80,       
+          "fontWeight": "bold",
+          "fontSize": 12,
+          "color": "Black"
+        },
+        "transform": [
+          {"filter": "datum.Country == 'UNITED STATES OF AMERICA' && datum.Top10Rank == 2 && datum.Year == 2010"}
+        ,{"calculate": "'US rank rose in 2006 as; international arrivals recovered ;after post-9/11 declines'",
+          "as": "text_annotation_raw"
+          },
+          {
+          "calculate": "split(datum.text_annotation_raw,';')",
+          "as": "annotation"
+          }
+        ],
+          "encoding": {
+          "x": {"field": "Year", "type": "ordinal"},
+          "y": {"field": "Top10Rank", "type": "quantitative","axis":null},
+          "text": {"field": "annotation"}
         }
       },
       {
@@ -123,7 +184,7 @@
         "mark": {"type": "image", "width": 40, "xOffset": 50},
         "encoding": {
           "x": {"field": "Year", "type": "ordinal"},
-          "y": {"field": "Top10Rank", "type": "ordinal"},
+          "y": {"field": "Top10Rank", "type": "ordinal","axis":null},
           "url": {"field": "flag"}
         }
       }

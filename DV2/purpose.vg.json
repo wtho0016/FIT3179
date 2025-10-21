@@ -22,8 +22,9 @@
       "text": {
         "font": "Oxygen",
         "fontSize": 12
-      },    "view": {"stroke": "transparent", "fill": "transparent"},
-    "padding": {"left": 150}},
+      },    
+      "view": {"stroke": "transparent", "fill": "transparent"},
+    "padding": {"left": 350}},
     "params": [
         {
         "name": "year_select",
@@ -63,23 +64,31 @@
     "mark": "bar",
     "encoding": {
         "y": {"field": "Country", "type": "ordinal", "title": "Country",
+                "axis": {
+                    "titlePadding": 15,
+                    "labelAngle": -45
+                },
                 "sort": {"field": "CountryRank", "op": "min"}  
             },
-        "x": {"field": "Value", "type": "quantitative", "title": "Number of Arrivals (Millions)"},
-        "color": {"field": "Purpose", "type": "nominal", "title": "Purpose", 
-                    "scale":{
-                                "domain": ["Personal", "Business and professional"],
-                                "range": ["#0492C2", "#051094"]  
-                            },
-                    "legend": {"orient":"top", "title": "Arrival Purpose"}
-                            
+        "x": {"field": "Value", "type": "quantitative",
+                "axis": {
+                    "titlePadding": 15
                 },
+                "title": "Number of Arrivals (Thousands)"},
+                "color": {"field": "Purpose", "type": "nominal", "title": "Purpose", 
+                            "scale":{
+                                        "domain": ["Personal", "Business and professional"],
+                                        "range": ["#0492C2", "#051094"]  
+                                    },
+                            "legend": {"orient":"top", "title": "Arrival Purpose"}
+                                    
+                        },
     "order": {"field": "stackOrder", "type": "quantitative"},
         "tooltip": [
         {"field": "Country","type":"nominal"},
         {"field": "Year","type":"ordinal"},
         {"field": "Purpose","type":"nominal"},
-        {"field": "Value","type":"quantitative"},
+        {"field": "Value","type":"quantitative","title" :"Arrivals (thousands)"},
         {"field": "CountryRank", "type": "ordinal", "title": "Rank"} 
         ]
     }

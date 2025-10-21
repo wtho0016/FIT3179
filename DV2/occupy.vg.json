@@ -44,36 +44,71 @@
     {"filter": "isValid(datum['Average length of stay']) && isValid(datum['Occupancy rate / rooms']) && isValid(datum['Number of rooms']) && datum['Average length of stay'] > 0 && datum['Occupancy rate / rooms'] > 0 && datum['Number of rooms'] > 0"},
     {"filter": "datum.Year == year_chosen"}
   ],
-  "mark": {
-    "type": "circle",
-    "opacity": 0.7,
-    "stroke": "black",
-    "strokeWidth": 0.5
+    "layer": [
+      {
+    "mark": {
+      "type": "circle",
+      "opacity": 0.7,
+      "stroke": "black",
+      "strokeWidth": 0.5
+    },
+    "encoding": {
+      "x": {
+        "field": "Occupancy rate / rooms",
+        "type": "quantitative",
+        "axis": {
+          "titlePadding": 15
+        },
+        "title": "Occupancy Rate (Rooms, %)"
+      },
+      "y": {
+        "field": "Average length of stay",
+        "type": "quantitative",
+        "axis": {
+          "titlePadding": 15
+        },
+        "title": "Average Length of Stay (Nights)"
+      },
+      "size": {
+        "field": "Number of rooms",
+        "type": "quantitative",
+        "title": "Number of Rooms",
+        "scale": {"range": [100,2000]}
+      },
+      "color": {
+      "condition": {
+          "test": "datum.Country == 'SINGAPORE' || datum.Country == 'FRENCH POLYNESIA'",
+          "value": "#FFB400" 
+        },
+        "value": "steelblue"
+      },
+      "tooltip": [
+        {"field": "Country","type":"nominal"},
+        {"field": "Year","type":"ordinal"},
+        {"title": "Occupancy rate","type":"quantitative","field":"Occupancy rate / rooms"},
+        {"title": "Average stay (nights)","type":"quantitative", "field":"Average length of stay"},
+        {"field": "Number of rooms","type":"quantitative"}
+      ]
+    }
   },
-  "encoding": {
-    "x": {
-      "field": "Occupancy rate / rooms",
-      "type": "quantitative",
-      "title": "Occupancy Rate (Rooms, %)"
+  {
+    "mark": {
+      "type": "text",
+      "dy": -20,  
+      "fontWeight": "bold",
+      "fontSize": 12,
+      "color": "#000"
     },
-    "y": {
-      "field": "Average length of stay",
-      "type": "quantitative",
-      "title": "Average Length of Stay (Nights)"
-    },
-    "size": {
-      "field": "Number of rooms",
-      "type": "quantitative",
-      "title": "Number of Rooms",
-      "scale": {"range": [100,2000]}
-    },
-    "color": {"value": "#1f77b4"},
-    "tooltip": [
-      {"field": "Country","type":"nominal"},
-      {"field": "Year","type":"ordinal"},
-      {"field": "Occupancy rate / rooms","type":"quantitative"},
-      {"field": "Average length of stay","type":"quantitative"},
-      {"field": "Number of rooms","type":"quantitative"}
-    ]
+    "encoding": {
+      "y": {"field": "Average length of stay", "type": "quantitative"},
+      "x": {"field": "Occupancy rate / rooms", "type": "quantitative"},
+      "text": {"field": "Country"},
+      "opacity": {
+        "condition": {"test": "datum.Country == 'SINGAPORE' || datum.Country == 'FRENCH POLYNESIA'", "value": 1},
+        "value": 0
+      }
+    }
   }
+
+]
 }

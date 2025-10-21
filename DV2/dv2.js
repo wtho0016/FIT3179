@@ -61,3 +61,4 @@ var occupy = "occupy.vg.json";
 }).then(function(result) {
  // Access the Vega view instance as result.view if needed
 }).catch(console.error);
+

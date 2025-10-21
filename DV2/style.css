@@ -33,7 +33,7 @@
 
     /* Title container uses same style */
     .title-container h1 {
-    font-size: 50px;
+    font-size: 60px;
     margin: 0;
     padding-top: 10px;
     text-align: center;
@@ -70,6 +70,11 @@
 
     .chart-container {
     flex: 3; /* 75% width (3/4) */
+    }
+
+    .footer {
+      background: #f0f0f0;
+      text-align: center;
     }
 
     .text-container {
