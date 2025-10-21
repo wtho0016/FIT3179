@@ -1,0 +1,67 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Inbound arrivals by purpose (top 30 countries), filtered by year",
+    "data":   {"url": "https://raw.githubusercontent.com/wtho0016/FIT3179/refs/heads/main/DV2/Data/Purpose.csv"},
+    "width": 450,
+    "background": "transparent",
+    "height": 450,
+    "padding": {"bottom": 20},
+    "config": {
+    "view": {"stroke": "transparent", "fill": "transparent"},
+    "padding": {"left": 150}},
+    "params": [
+        {
+        "name": "year_select",
+        "value": 2022,
+        "bind": {
+                "input": "range",
+                "min": 1995,
+                "max": 2022,
+                "step": 1,
+                "name": "Select Year: "
+        }
+        }
+    ],
+    "transform": [
+        {"filter": "datum.Year == year_select"},
+        {
+        "joinaggregate": [
+            {"op": "sum", "field": "Value", "as": "TotalByCountry"}
+        ],
+        "groupby": ["Country"]
+        },
+        {
+        "window": [
+            {"op": "dense_rank", "as": "CountryRank"}
+        ],
+        "sort": [{"field": "TotalByCountry", "order": "descending"}],
+        "frame": [null, null]
+        },
+        {"filter": "datum.CountryRank <= 20"},
+        {
+            "calculate": "datum.Purpose == 'Personal' ? 0 : 1",
+            "as": "stackOrder"
+        }
+    ],
+    "mark": "bar",
+    "encoding": {
+        "y": {"field": "Country", "type": "ordinal", "title": "Country",
+                "sort": {"field": "CountryRank", "op": "min"}  
+            },
+        "x": {"field": "Value", "type": "quantitative", "title": "Number of Arrivals (Millions)"},
+        "color": {"field": "Purpose", "type": "nominal", "title": "Purpose", 
+                    "scale":{
+                                "domain": ["Personal", "Business and professional"],
+                                "range": ["#0492C2", "#051094"]  
+                            } 
+                },
+    "order": {"field": "stackOrder", "type": "quantitative"},
+        "tooltip": [
+        {"field": "Country","type":"nominal"},
+        {"field": "Year","type":"ordinal"},
+        {"field": "Purpose","type":"nominal"},
+        {"field": "Value","type":"quantitative"},
+        {"field": "CountryRank", "type": "ordinal", "title": "Rank"} 
+        ]
+    }
+}

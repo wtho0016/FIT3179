@@ -6,16 +6,16 @@ var vg_1 = "mapdom.vg.json";
  // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
 }).catch(console.error);
 
-var vg_accom = "accom.vg.json";
- vegaEmbed("#chart_accom", vg_accom, {
-  actions: false,
-  background: "transparent"
-}).then(function(result) {
- // Access the Vega view instance as result.view if needed
-}).catch(console.error);
+// var vg_accom = "accom.vg.json";
+//  vegaEmbed("#chart_accom", vg_accom, {
+//   actions: false,
+//   background: "transparent"
+// }).then(function(result) {
+//  // Access the Vega view instance as result.view if needed
+// }).catch(console.error);
 
-var vg_accom2 = "accom2.vg.json";
- vegaEmbed("#chart_accom2", vg_accom2, {
+var purpose = "purpose.vg.json";
+ vegaEmbed("#purpose", purpose, {
   actions: false,
   background: "transparent"
 }).then(function(result) {
@@ -31,3 +31,10 @@ var vg_10 = "top10.vg.json";
  // Access the Vega view instance as result.view if needed
 }).catch(console.error);
 
+var occupy = "occupy.vg.json";
+ vegaEmbed("#occupy", occupy, {
+  actions: false,
+  background: "transparent"
+}).then(function(result) {
+ // Access the Vega view instance as result.view if needed
+}).catch(console.error);
