@@ -1,15 +1,29 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "GDP by Country (2022)",
+  "title": "GDP by Country",
   "width": 800,
   "height": 450,
-  "view": { "fill": "transparent" },
-  "background": "transparent",
   "projection": {"type": "equalEarth"},
+
+  "params": [
+    {
+      "name": "year_select",
+      "value": 2023,
+      "bind": {
+        "input": "range",
+        "min": 2008,
+        "max": 2023,
+        "step": 1,
+        "name": "Select Year: "
+      }
+    }
+  ],
+
   "data": {
     "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
     "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
   },
+
   "transform": [
     {
       "lookup": "properties.ISO_N3",
@@ -19,37 +33,34 @@
           "format": {"type": "csv"}
         },
         "key": "GeoCodeStr",
-        "fields": ["Value"]
+        "fields": ["Value", "TimePeriod"]
       }
     },
     {
-        "calculate": "('000' + datum.GeoAreaCode).slice(-3)",
-        "as": "GeoCodeStr"
+      "joinaggregate": [{
+        "op": "count",
+        "field": "TimePeriod", 
+        "as": "year_count"
+      }],
+      "groupby": ["properties.ISO_N3", "TimePeriod"]
     },
     {
-        "lookup": "properties.ISO_N3",
-        "from": {
-        "data": {
-            "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
-            "format": {"type": "csv"}
-        },
-        "key": "GeoCodeStr",
-        "fields": ["Value"]
-        }
-    },
-    {"calculate": "datum.Value + 0.1", "as": "ValueAdjusted"}
+      "filter": "datum.TimePeriod == year_select && datum.year_count > 0"
+    }
   ],
+  
   "mark": {"type": "geoshape"},
   "encoding": {
     "color": {
-      "field": "ValueAdjusted",
+      "field": "Value",
       "type": "quantitative",
-        "scale": {"type": "linear", "domain":[0,35]}
-
+      "scale": {"type": "sqrt"},
+      "title": "GDP"
     },
     "tooltip": [
       {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-      {"field": "Value", "type": "quantitative"}
+      {"field": "Value", "type": "quantitative"},
+      {"field": "TimePeriod", "type": "quantitative"}
     ]
   }
 }
